@@ -19,7 +19,5 @@ public class App
             sum +=str;
         }
         System.out.println(sum);
-
-
     }
 }
