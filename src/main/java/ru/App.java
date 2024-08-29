@@ -14,6 +14,7 @@ public class App
                 str = Double.parseDouble(args[i]);
             } catch (NumberFormatException ex) {
                 args[i] = "0";
+                str = Double.parseDouble(args[i]);
             }
             sum +=str;
         }
