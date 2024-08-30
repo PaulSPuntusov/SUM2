@@ -13,8 +13,7 @@ public class App
             try {
                 str = Double.parseDouble(args[i]);
             } catch (NumberFormatException ex) {
-                args[i] = "0";
-                str = Double.parseDouble(args[i]);
+                str = 0.;
             }
             sum +=str;
         }
