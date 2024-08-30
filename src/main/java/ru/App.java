@@ -10,10 +10,10 @@ public class App
         double str=0.;
         double sum = 0.;
         for (int i = 0; i < args.length; i++) {
-            try {
-                str = Double.parseDouble(args[i]);
-            } catch (NumberFormatException ex) {
+            if(args[i]!=71){
                 str = 0.;
+            } else {
+                str = Double.parseDouble(args[i]);
             }
             sum +=str;
         }
