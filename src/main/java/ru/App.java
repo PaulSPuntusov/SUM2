@@ -15,20 +15,26 @@ public class App {
 
     }
 
-    public static int divide(String filename) throws FileNotFoundException {
+    public static int divide(String filename) {
         File f = new File(filename);
-        Scanner sc = new Scanner(f);
-        int tr;
+        int tr = 0;
+        Scanner sc = null;
         try {
-            tr = sc.nextInt() / sc.nextInt();
-        } catch (InputMismatchException ime) {
-            tr = 0;
-            sc.close();
-        } catch (NoSuchElementException nsee) {
-            tr = 0;
-            sc.close();
-        } catch (ArithmeticException ae) {
-            tr = 0;
+            sc = new Scanner(f);
+
+            try {
+                tr = sc.nextInt() / sc.nextInt();
+            } catch (InputMismatchException ime) {
+                tr = 0;
+                throw new OperationAttemptException("OperationAttemptException");
+
+            } catch (NoSuchElementException nsee) {
+                tr = 0;
+
+            } catch (ArithmeticException ae) {
+                tr = 0;
+            }
+        } catch (FileNotFoundException fnfe) {
             sc.close();
         }
         return tr;
