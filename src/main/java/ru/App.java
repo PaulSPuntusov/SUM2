@@ -11,11 +11,16 @@ import java.util.Scanner;
  */
 public class App {
     public static void main(String[] args) {
+        try{
+            System.out.println(divide("C:\\Users\\pps_r\\OneDrive\\Документы\\java\\f.txt"));
+        } catch(OperationAttemptException oae) {
+            System.out.println("OperationAttemptException");
+        }
 
 
     }
 
-    public static int divide(String filename) {
+    public static int divide(String filename) throws OperationAttemptException {
         File f = new File(filename);
         int tr = 0;
         Scanner sc = null;
@@ -26,17 +31,23 @@ public class App {
                 tr = sc.nextInt() / sc.nextInt();
             } catch (InputMismatchException ime) {
                 tr = 0;
-                throw new OperationAttemptException("OperationAttemptException");
+                System.out.println("IME");
 
             } catch (NoSuchElementException nsee) {
                 tr = 0;
+                System.out.println("NSEE");
 
             } catch (ArithmeticException ae) {
                 tr = 0;
+                System.out.println("AE");
             }
         } catch (FileNotFoundException fnfe) {
             sc.close();
+            System.out.println("FNFE");
+        } catch (NullPointerException npe) {
+            System.out.println("NPE");
         }
+
         return tr;
     }
 }
