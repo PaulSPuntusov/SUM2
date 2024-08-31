@@ -1,27 +1,36 @@
 package ru;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
 /**
  * Hello world!
- *
  */
-public class App 
-{
+public class App {
     public static void main(String[] args) {
-        double str=0.;
-        double sum = 0.;
-        for (int i = 0; i < args.length; i++) {
-            try {
-                str = Double.parseDouble(args[i]);
-                System.out.println("args["+i+"]= "+args[i]);
-                System.out.println("i="+i+" str= "+str);
-            } catch (NumberFormatException ex) {
-                str = 0.;
-                System.out.println("args["+i+"]= "+args[i]);
-                System.out.println("i="+i+" str= "+str);
-            }
-            sum +=str;
-            System.out.println("sum = "+sum);
+
+
+    }
+
+    public static int divide(String filename) throws FileNotFoundException {
+        File f = new File(filename);
+        Scanner sc = new Scanner(f);
+        int tr;
+        try {
+            tr = sc.nextInt() / sc.nextInt();
+        } catch (InputMismatchException ime) {
+            tr = 0;
+            sc.close();
+        } catch (NoSuchElementException nsee) {
+            tr = 0;
+            sc.close();
+        } catch (ArithmeticException ae) {
+            tr = 0;
+            sc.close();
         }
-        System.out.println("Итого, Sum = "+ sum);
+        return tr;
     }
 }
