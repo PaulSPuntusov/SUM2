@@ -12,11 +12,16 @@ public class App
         for (int i = 0; i < args.length; i++) {
             try {
                 str = Double.parseDouble(args[i]);
+                System.out.println("args["+i+"]= "+args[i]);
+                System.out.println("i="+i+" str= "+str);
             } catch (NumberFormatException ex) {
                 str = 0.;
+                System.out.println("args["+i+"]= "+args[i]);
+                System.out.println("i="+i+" str= "+str);
             }
             sum +=str;
+            System.out.println("sum = "+sum);
         }
-        System.out.println(sum);
+        System.out.println("Итого, Sum = "+ sum);
     }
 }
